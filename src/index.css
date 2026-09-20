@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-black: #080808;
+    --deep-black: #0D0D0D;
+    --graphite: #171717;
+    --dark-gray: #242424;
+    --medium-gray: #777777;
+    --light-gray: #B8B8B8;
+    --off-white: #F2F0EA;
+    --luxury-gold: #C8A45D;
+    --highlight-gold: #E1C37A;
+  }
+
+  body {
+    background-color: var(--bg-black);
+    color: var(--off-white);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif-editorial {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #242424;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A45D;
+}
+
+/* Grain Noise Overlay */
+.grain-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Gold Gradient Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #E1C37A 0%, #C8A45D 50%, #9B783E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-subtle {
+  border-color: rgba(200, 164, 93, 0.25);
+}
+
+.border-gold-glow {
+  border-color: rgba(200, 164, 93, 0.6);
+  box-shadow: 0 0 25px rgba(200, 164, 93, 0.15);
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C8A45D 0%, #B89249 100%);
+}
+
+.bg-graphite-card {
+  background-color: #0D0D0D;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.bg-graphite-card:hover {
+  border-color: rgba(200, 164, 93, 0.35);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
