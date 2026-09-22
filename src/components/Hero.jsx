@@ -118,7 +118,7 @@ export default function Hero() {
               <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden bg-[#0D0D0D] border border-[#242424] group shadow-2xl">
                 {/* Visual Image / High Quality Unsplash Executive Portrait */}
                 <img
-                  src="/photo/anbarasi.jpeg"
+                  src="/photo/anbarasi1.jpeg"
                   alt="Anbarasi - MBA Professional"
                   onLoad={() => setImageLoaded(true)}
                   className={`w-full h-full object-cover object-center filter grayscale contrast-110 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ${

@@ -30,7 +30,7 @@ export default function About() {
             {/* Image Container */}
             <div className="relative rounded-sm overflow-hidden bg-[#0D0D0D] border border-[#242424] group">
               <img
-                src="/photo/anbarasi.jpeg"
+                src="/photo/anbarasi2.jpeg"
                 alt="Anbarasi - MBA Professional"
                 className="w-full aspect-[4/5] object-cover object-center filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
