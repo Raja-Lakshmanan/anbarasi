@@ -111,8 +111,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#080808] relative grain-texture">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-28 bg-[#080808] relative grain-texture bg-depth-layer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <SectionHeader
@@ -134,14 +134,14 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Direct Details Stack */}
+            {/* Direct Details Stack — Glass Cards */}
             <div className="space-y-4 pt-2">
               
               <a
                 href={`mailto:${contact.email}`}
-                className="flex items-center gap-4 p-4 bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 rounded-sm group transition-all"
+                className="flex items-center gap-4 p-4 glass-card rounded-sm group glass-light-reflection"
               >
-                <div className="p-3 bg-[#171717] rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D] group-hover:text-[#080808] transition-colors">
+                <div className="p-3 glass-surface rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D]/90 group-hover:text-[#080808] transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -156,9 +156,9 @@ export default function Contact() {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 rounded-sm group transition-all"
+                className="flex items-center gap-4 p-4 glass-card rounded-sm group glass-light-reflection"
               >
-                <div className="p-3 bg-[#171717] rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D] group-hover:text-[#080808] transition-colors">
+                <div className="p-3 glass-surface rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D]/90 group-hover:text-[#080808] transition-colors">
                   <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                   </svg>
@@ -173,9 +173,9 @@ export default function Contact() {
 
               <a
                 href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                className="flex items-center gap-4 p-4 bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 rounded-sm group transition-all"
+                className="flex items-center gap-4 p-4 glass-card rounded-sm group glass-light-reflection"
               >
-                <div className="p-3 bg-[#171717] rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D] group-hover:text-[#080808] transition-colors">
+                <div className="p-3 glass-surface rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D]/90 group-hover:text-[#080808] transition-colors">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -186,8 +186,8 @@ export default function Contact() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 bg-[#0D0D0D] border border-[#242424] rounded-sm">
-                <div className="p-3 bg-[#171717] rounded-sm text-[#C8A45D]">
+              <div className="flex items-center gap-4 p-4 glass-card rounded-sm">
+                <div className="p-3 glass-surface rounded-sm text-[#C8A45D]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -202,8 +202,8 @@ export default function Contact() {
 
           </div>
 
-          {/* RIGHT COLUMN: Contact Form */}
-          <div className="lg:col-span-7 bg-[#0D0D0D] border border-[#242424] p-8 sm:p-10 rounded-sm shadow-xl relative space-y-6">
+          {/* RIGHT COLUMN: Contact Form — Glass Surface */}
+          <div className="lg:col-span-7 glass-card p-8 sm:p-10 rounded-sm relative space-y-6">
 
             {/* Notifications Banners */}
             <AnimatePresence>
@@ -242,7 +242,7 @@ export default function Contact() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="p-4 bg-[#171717] border border-[#C8A45D]/40 rounded-sm text-[#B8B8B8] flex items-start gap-3 text-sm"
+                  className="p-4 glass-surface rounded-sm text-[#B8B8B8] flex items-start gap-3 text-sm"
                 >
                   <Info className="w-5 h-5 text-[#C8A45D] shrink-0 mt-0.5" />
                   <div className="space-y-1">
@@ -272,9 +272,9 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Eleanor Vance"
-                    className={`w-full px-4 py-3 bg-[#080808] border ${
-                      errors.name ? 'border-red-500' : 'border-[#242424] focus:border-[#C8A45D]'
-                    } text-[#F2F0EA] text-sm rounded-sm focus:outline-none transition-colors`}
+                    className={`w-full px-4 py-3 glass-input ${
+                      errors.name ? 'border-red-500' : ''
+                    } text-[#F2F0EA] text-sm rounded-sm`}
                   />
                   {errors.name && (
                     <span className="text-[11px] text-red-400 flex items-center gap-1">
@@ -297,9 +297,9 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. eleanor@domain.com"
-                    className={`w-full px-4 py-3 bg-[#080808] border ${
-                      errors.email ? 'border-red-500' : 'border-[#242424] focus:border-[#C8A45D]'
-                    } text-[#F2F0EA] text-sm rounded-sm focus:outline-none transition-colors`}
+                    className={`w-full px-4 py-3 glass-input ${
+                      errors.email ? 'border-red-500' : ''
+                    } text-[#F2F0EA] text-sm rounded-sm`}
                   />
                   {errors.email && (
                     <span className="text-[11px] text-red-400 flex items-center gap-1">
@@ -323,9 +323,9 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="e.g. Executive Strategy Opportunity"
-                    className={`w-full px-4 py-3 bg-[#080808] border ${
-                      errors.subject ? 'border-red-500' : 'border-[#242424] focus:border-[#C8A45D]'
-                    } text-[#F2F0EA] text-sm rounded-sm focus:outline-none transition-colors`}
+                    className={`w-full px-4 py-3 glass-input ${
+                      errors.subject ? 'border-red-500' : ''
+                    } text-[#F2F0EA] text-sm rounded-sm`}
                   />
                   {errors.subject && (
                     <span className="text-[11px] text-red-400 flex items-center gap-1">
@@ -344,7 +344,7 @@ export default function Contact() {
                     name="category"
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#080808] border border-[#242424] focus:border-[#C8A45D] text-[#F2F0EA] text-sm rounded-sm focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 glass-input text-[#F2F0EA] text-sm rounded-sm"
                   >
                     <option value="Recruitment">Executive Recruitment</option>
                     <option value="Consulting">Strategy & Advisory Project</option>
@@ -367,9 +367,9 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Please share details about your inquiry or project opportunity..."
-                  className={`w-full px-4 py-3 bg-[#080808] border ${
-                    errors.message ? 'border-red-500' : 'border-[#242424] focus:border-[#C8A45D]'
-                  } text-[#F2F0EA] text-sm rounded-sm focus:outline-none transition-colors resize-none`}
+                  className={`w-full px-4 py-3 glass-input ${
+                    errors.message ? 'border-red-500' : ''
+                  } text-[#F2F0EA] text-sm rounded-sm resize-none`}
                 />
                 {errors.message && (
                   <span className="text-[11px] text-red-400 flex items-center gap-1">
@@ -382,7 +382,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSending}
-                className="w-full py-4 text-xs font-semibold tracking-widest text-[#080808] bg-gradient-to-r from-[#C8A45D] to-[#E1C37A] rounded-sm hover:brightness-110 disabled:opacity-75 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 group shadow-lg shadow-[#C8A45D]/10"
+                className="w-full py-4 text-xs font-semibold tracking-widest btn-glass-primary rounded-sm disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
               >
                 {isSending ? (
                   <span className="flex items-center gap-2">

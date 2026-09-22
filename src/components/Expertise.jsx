@@ -15,8 +15,8 @@ export default function Expertise() {
   const { expertise } = portfolioData;
 
   return (
-    <section id="expertise" className="py-24 bg-[#080808] border-b border-[#171717] relative grain-texture">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="expertise" className="py-28 bg-[#080808] border-b border-[#171717] relative grain-texture bg-depth-layer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <SectionHeader
@@ -36,8 +36,8 @@ export default function Expertise() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 p-8 rounded-sm relative group transition-all duration-500 hover:-translate-y-1 shadow-lg flex flex-col justify-between overflow-hidden"
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
+                className="glass-card p-8 rounded-sm relative group glass-light-reflection flex flex-col justify-between overflow-hidden"
               >
                 {/* Top Animated Gold Line */}
                 <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#C8A45D] to-[#E1C37A] group-hover:w-full transition-all duration-500" />
@@ -48,7 +48,7 @@ export default function Expertise() {
                     <span className="font-serif-editorial text-3xl font-bold text-gold-gradient">
                       {item.number}
                     </span>
-                    <div className="p-3 bg-[#171717] rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D] group-hover:text-[#080808] transition-colors duration-300">
+                    <div className="p-3 glass-surface rounded-sm text-[#C8A45D] group-hover:bg-[#C8A45D]/90 group-hover:text-[#080808] transition-colors duration-300">
                       <IconComponent className="w-5 h-5" />
                     </div>
                   </div>
@@ -65,7 +65,7 @@ export default function Expertise() {
                 </div>
 
                 {/* Subtle Bottom Gold Bar indicator */}
-                <div className="pt-6 mt-6 border-t border-[#171717] flex items-center justify-between text-[10px] tracking-[0.2em] uppercase text-[#777777] group-hover:text-[#C8A45D] transition-colors">
+                <div className="pt-6 mt-6 border-t border-white/[0.05] flex items-center justify-between text-[10px] tracking-[0.2em] uppercase text-[#777777] group-hover:text-[#C8A45D] transition-colors">
                   <span>EXECUTIVE PILLAR</span>
                   <span>CORE COMPETENCY</span>
                 </div>

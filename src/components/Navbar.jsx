@@ -67,7 +67,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#080808]/90 backdrop-blur-md border-b border-[#242424]/60 py-4'
+            ? 'glass-nav py-3.5'
             : 'bg-transparent py-6'
         }`}
       >
@@ -83,7 +83,7 @@ export default function Navbar() {
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-3 group text-left focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-sm bg-[#171717] border border-[#C8A45D]/40 flex items-center justify-center text-[#C8A45D] font-serif-editorial text-xl font-bold group-hover:border-[#C8A45D] transition-colors">
+            <div className="w-10 h-10 rounded-sm glass-surface flex items-center justify-center text-[#C8A45D] font-serif-editorial text-xl font-bold group-hover:border-[#C8A45D]/60 transition-colors">
               {portfolioData.profile.initials}
             </div>
             <div>
@@ -124,7 +124,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-widest text-[#080808] bg-gradient-to-r from-[#C8A45D] to-[#E1C37A] rounded-sm hover:brightness-110 transition-all transform hover:-translate-y-0.5 shadow-md shadow-[#C8A45D]/10"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-widest btn-glass-primary rounded-sm"
             >
               <span>LET'S CONNECT</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -150,7 +150,12 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-[#080808] flex flex-col justify-between p-6 sm:p-12 overflow-y-auto lg:hidden grain-texture"
+            className="fixed inset-0 z-40 flex flex-col justify-between p-6 sm:p-12 overflow-y-auto lg:hidden"
+            style={{
+              background: 'rgba(8, 8, 8, 0.95)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+            }}
           >
             <div className="pt-20">
               <div className="text-[10px] tracking-[0.3em] font-semibold text-[#C8A45D] uppercase mb-8 border-b border-[#242424] pb-4">
@@ -192,7 +197,7 @@ export default function Navbar() {
               </div>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full sm:w-auto text-center px-6 py-3 text-xs font-semibold tracking-widest text-[#080808] bg-[#C8A45D] rounded-sm"
+                className="w-full sm:w-auto text-center px-6 py-3 text-xs font-semibold tracking-widest btn-glass-primary rounded-sm"
               >
                 GET IN TOUCH
               </button>

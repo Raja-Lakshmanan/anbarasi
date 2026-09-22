@@ -25,18 +25,19 @@ export default function CertificateModal({ certificate, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#080808]/90 backdrop-blur-md"
+          className="fixed inset-0 bg-[#080808]/90"
+          style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
         />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ type: 'spring', duration: 0.5 }}
-          className="relative w-full max-w-4xl bg-[#0D0D0D] border border-[#C8A45D]/60 rounded-sm shadow-2xl p-5 sm:p-8 z-10 space-y-6 grain-texture max-h-[90vh] overflow-y-auto"
+          exit={{ opacity: 0, scale: 0.96, y: 20 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          className="relative w-full max-w-4xl glass-card border-[#C8A45D]/40 rounded-sm shadow-2xl p-5 sm:p-8 z-10 space-y-6 grain-texture max-h-[90vh] overflow-y-auto"
         >
           {/* Top Bar Header */}
-          <div className="flex items-center justify-between border-b border-[#242424] pb-4">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-[#C8A45D]" />
               <span className="text-xs font-semibold tracking-widest text-[#C8A45D] uppercase">
@@ -45,15 +46,15 @@ export default function CertificateModal({ certificate, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 text-[#B8B8B8] hover:text-[#C8A45D] hover:bg-[#171717] rounded-sm transition-colors"
+              className="p-1.5 text-[#B8B8B8] hover:text-[#C8A45D] hover:bg-white/[0.04] rounded-sm transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Certificate Image Frame */}
+          {/* Certificate Image Frame — Glass with Gold Border */}
           {certificate.image && (
-            <div className="w-full bg-[#080808] border border-[#C8A45D]/40 rounded-sm overflow-hidden p-2 sm:p-4 flex items-center justify-center max-h-[50vh] sm:max-h-[60vh] relative group">
+            <div className="w-full premium-image-frame rounded-sm overflow-hidden p-2 sm:p-4 flex items-center justify-center max-h-[50vh] sm:max-h-[60vh] relative group">
               <img
                 src={certificate.image}
                 alt={certificate.title}
@@ -63,8 +64,8 @@ export default function CertificateModal({ certificate, onClose }) {
           )}
 
           {/* Credential Details Breakdown */}
-          <div className="space-y-4 bg-[#080808]/80 border border-[#242424] p-5 rounded-sm">
-            <div className="border-b border-[#171717] pb-3">
+          <div className="space-y-4 glass-surface p-5 rounded-sm">
+            <div className="border-b border-white/[0.05] pb-3">
               <span className="text-[10px] tracking-[0.2em] text-[#C8A45D] uppercase font-semibold">
                 CREDENTIAL TITLE
               </span>
@@ -120,7 +121,7 @@ export default function CertificateModal({ certificate, onClose }) {
             </div>
 
             {certificate.description && (
-              <div className="pt-3 border-t border-[#171717]">
+              <div className="pt-3 border-t border-white/[0.05]">
                 <span className="text-[10px] tracking-widest text-[#777777] uppercase font-semibold block mb-1">
                   DESCRIPTION & SCOPE:
                 </span>
@@ -139,7 +140,7 @@ export default function CertificateModal({ certificate, onClose }) {
                   href={certificate.image}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 bg-[#171717] border border-[#242424] hover:bg-[#242424] text-[#F2F0EA] text-xs font-semibold tracking-widest transition-all rounded-sm flex items-center gap-2"
+                  className="px-4 py-2.5 btn-glass-secondary text-[#F2F0EA] text-xs font-semibold tracking-widest rounded-sm flex items-center gap-2"
                 >
                   <span>OPEN FULL SIZE</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -151,7 +152,7 @@ export default function CertificateModal({ certificate, onClose }) {
                   href={certificate.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 bg-[#171717] border border-[#C8A45D]/40 hover:border-[#C8A45D] text-[#C8A45D] text-xs font-semibold tracking-widest transition-all rounded-sm flex items-center gap-2"
+                  className="px-4 py-2.5 btn-glass-secondary text-[#C8A45D] text-xs font-semibold tracking-widest rounded-sm flex items-center gap-2 border-[#C8A45D]/30"
                 >
                   <span>VERIFY ONLINE</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -161,7 +162,7 @@ export default function CertificateModal({ certificate, onClose }) {
 
             <button
               onClick={onClose}
-              className="px-6 py-2.5 text-xs font-semibold tracking-widest text-[#080808] bg-[#C8A45D] rounded-sm hover:brightness-110 transition-all"
+              className="px-6 py-2.5 text-xs font-semibold tracking-widest btn-glass-primary rounded-sm"
             >
               CLOSE PREVIEW
             </button>

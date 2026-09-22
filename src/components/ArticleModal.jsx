@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Clock, Calendar, BookOpen, Share2 } from 'lucide-react';
+import { X, Clock, Calendar } from 'lucide-react';
 
 export default function ArticleModal({ article, onClose }) {
   useEffect(() => {
@@ -25,20 +25,21 @@ export default function ArticleModal({ article, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#080808]/90 backdrop-blur-md"
+          className="fixed inset-0 bg-[#080808]/90"
+          style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
         />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ type: 'spring', duration: 0.5 }}
-          className="relative w-full max-w-3xl max-h-[90vh] bg-[#0D0D0D] border border-[#C8A45D]/40 rounded-sm shadow-2xl overflow-y-auto z-10 flex flex-col grain-texture"
+          exit={{ opacity: 0, scale: 0.96, y: 20 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          className="relative w-full max-w-3xl max-h-[90vh] glass-card border-[#C8A45D]/30 rounded-sm shadow-2xl overflow-y-auto z-10 flex flex-col grain-texture"
         >
           {/* Header */}
-          <div className="sticky top-0 z-20 bg-[#080808]/95 backdrop-blur-md border-b border-[#242424] p-6 flex items-center justify-between">
+          <div className="sticky top-0 z-20 glass-nav border-b border-white/[0.06] p-6 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 bg-[#171717] border border-[#C8A45D]/40 text-[#C8A45D] text-xs font-semibold tracking-widest rounded-sm uppercase">
+              <span className="px-3 py-1 glass-pill text-[#C8A45D] text-xs font-semibold tracking-widest rounded-sm uppercase">
                 {article.category}
               </span>
               <div className="flex items-center gap-4 text-xs text-[#777777]">
@@ -55,7 +56,7 @@ export default function ArticleModal({ article, onClose }) {
 
             <button
               onClick={onClose}
-              className="p-2 text-[#B8B8B8] hover:text-[#C8A45D] hover:bg-[#171717] rounded-sm transition-colors"
+              className="p-2 text-[#B8B8B8] hover:text-[#C8A45D] hover:bg-white/[0.04] rounded-sm transition-colors"
               aria-label="Close Article"
             >
               <X className="w-6 h-6" />
@@ -64,7 +65,7 @@ export default function ArticleModal({ article, onClose }) {
 
           {/* Body */}
           <div className="p-6 sm:p-10 space-y-8">
-            <div className="space-y-4 border-b border-[#242424] pb-6">
+            <div className="space-y-4 border-b border-white/[0.06] pb-6">
               <h2 className="font-serif-editorial text-3xl sm:text-5xl text-[#F2F0EA] leading-tight">
                 {article.title}
               </h2>
@@ -88,13 +89,13 @@ export default function ArticleModal({ article, onClose }) {
           </div>
 
           {/* Footer */}
-          <div className="p-6 bg-[#080808] border-t border-[#242424] flex items-center justify-between">
+          <div className="p-6 glass-nav border-t border-white/[0.06] flex items-center justify-between">
             <span className="text-xs text-[#777777] uppercase tracking-widest font-medium">
               EXECUTIVE BUSINESS PERSPECTIVE
             </span>
             <button
               onClick={onClose}
-              className="px-6 py-2 text-xs font-semibold tracking-widest text-[#080808] bg-[#C8A45D] rounded-sm hover:brightness-110 transition-all"
+              className="px-6 py-2 text-xs font-semibold tracking-widest btn-glass-primary rounded-sm"
             >
               CLOSE ARTICLE
             </button>

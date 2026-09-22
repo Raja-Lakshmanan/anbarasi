@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, ShieldCheck, CheckCircle2, FileText, ChevronRight, Eye, ExternalLink } from 'lucide-react';
+import { GraduationCap, Award, ShieldCheck, FileText, ChevronRight, Eye, ExternalLink } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import CertificateModal from './CertificateModal';
 import { portfolioData } from '../data/portfolioData';
@@ -10,8 +10,8 @@ export default function Credentials() {
   const [selectedCert, setSelectedCert] = useState(null);
 
   return (
-    <section id="credentials" className="py-24 bg-[#080808] border-b border-[#171717] relative grain-texture">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="credentials" className="py-28 bg-[#080808] border-b border-[#171717] relative grain-texture bg-depth-layer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <SectionHeader
@@ -36,13 +36,13 @@ export default function Credentials() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
                   className="relative group"
                 >
                   {/* Gold Node */}
                   <span className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[#080808] border-2 border-[#C8A45D] group-hover:bg-[#C8A45D] transition-colors" />
 
-                  <div className="bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/40 p-6 rounded-sm space-y-2 transition-all">
+                  <div className="glass-card p-6 rounded-sm space-y-2 glass-light-reflection">
                     <span className="text-xs font-semibold tracking-wider text-[#C8A45D] uppercase block">
                       {item.year}
                     </span>
@@ -71,7 +71,7 @@ export default function Credentials() {
 
               <div className="space-y-4">
                 {credentials.achievements.map((ach) => (
-                  <div key={ach.id} className="p-5 bg-[#0D0D0D] border border-[#242424] rounded-sm space-y-1">
+                  <div key={ach.id} className="p-5 glass-card rounded-sm space-y-1 glass-light-reflection">
                     <div className="flex items-center justify-between">
                       <h5 className="font-serif-editorial text-lg text-[#F2F0EA]">
                         {ach.title}
@@ -104,21 +104,21 @@ export default function Credentials() {
               {credentials.certifications.map((cert) => (
                 <div
                   key={cert.id}
-                  className="p-6 bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 rounded-sm space-y-5 transition-all shadow-xl"
+                  className="p-6 glass-card rounded-sm space-y-5 glass-light-reflection"
                 >
-                  {/* Top Image Preview Frame */}
+                  {/* Top Image Preview Frame — Glass Treatment with Gold Border */}
                   {cert.image && (
                     <div
                       onClick={() => setSelectedCert(cert)}
-                      className="relative aspect-[16/10] w-full bg-[#080808] border border-[#C8A45D]/30 group-hover:border-[#C8A45D]/70 rounded-sm overflow-hidden cursor-pointer flex items-center justify-center p-3 transition-all group/frame"
+                      className="relative aspect-[16/10] w-full premium-image-frame rounded-sm overflow-hidden cursor-pointer flex items-center justify-center p-3 transition-all group/frame"
                     >
                       <img
                         src={cert.image}
                         alt={cert.title}
-                        className="w-full h-full object-contain filter grayscale-0 group-hover/frame:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover/frame:scale-[1.03] transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-[#080808]/40 opacity-0 group-hover/frame:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                        <span className="px-3 py-1.5 bg-[#080808]/90 border border-[#C8A45D] text-[#C8A45D] text-[10px] tracking-[0.2em] font-semibold uppercase rounded-sm flex items-center gap-1.5 shadow-lg">
+                      <div className="absolute inset-0 bg-[#080808]/30 opacity-0 group-hover/frame:opacity-100 transition-opacity flex items-center justify-center" style={{ backdropFilter: 'blur(2px)' }}>
+                        <span className="px-3 py-1.5 glass-pill text-[#C8A45D] text-[10px] tracking-[0.2em] font-semibold uppercase rounded-sm flex items-center gap-1.5 shadow-lg">
                           <Eye className="w-3.5 h-3.5" />
                           <span>ENLARGE CERTIFICATE</span>
                         </span>
@@ -128,7 +128,7 @@ export default function Credentials() {
 
                   {/* Card Content & Metadata */}
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between text-[10px] tracking-widest text-[#777777] uppercase border-b border-[#171717] pb-2">
+                    <div className="flex items-center justify-between text-[10px] tracking-widest text-[#777777] uppercase border-b border-white/[0.05] pb-2">
                       <span className="text-[#C8A45D] font-semibold">{cert.number}</span>
                       <span>DATE: {cert.date || cert.year}</span>
                     </div>
@@ -160,17 +160,17 @@ export default function Credentials() {
                     </div>
 
                     {cert.description && (
-                      <p className="text-xs text-[#B8B8B8] font-light leading-relaxed pt-2 border-t border-[#171717]">
+                      <p className="text-xs text-[#B8B8B8] font-light leading-relaxed pt-2 border-t border-white/[0.05]">
                         {cert.description}
                       </p>
                     )}
                   </div>
 
                   {/* Card Actions */}
-                  <div className="pt-4 border-t border-[#171717] flex flex-wrap items-center justify-between gap-3">
+                  <div className="pt-4 border-t border-white/[0.05] flex flex-wrap items-center justify-between gap-3">
                     <button
                       onClick={() => setSelectedCert(cert)}
-                      className="py-2.5 px-4 bg-[#171717] border border-[#242424] hover:bg-[#C8A45D] hover:text-[#080808] hover:border-[#C8A45D] text-[#F2F0EA] text-xs font-semibold tracking-widest transition-all rounded-sm flex items-center gap-2"
+                      className="py-2.5 px-4 btn-glass-secondary text-[#F2F0EA] text-xs font-semibold tracking-widest rounded-sm flex items-center gap-2 hover:bg-[#C8A45D]/90 hover:text-[#080808] hover:border-[#C8A45D]"
                     >
                       <span>VIEW CERTIFICATE</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -209,7 +209,7 @@ export default function Credentials() {
                       {sc.items.map((skill, sIdx) => (
                         <span
                           key={sIdx}
-                          className="px-3 py-1 bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/40 text-[#F2F0EA] text-xs rounded-sm transition-colors"
+                          className="px-3 py-1.5 glass-surface text-[#F2F0EA] text-xs rounded-sm transition-all hover:border-[#C8A45D]/40"
                         >
                           {skill}
                         </span>

@@ -26,10 +26,10 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#080808] border-t border-[#171717] relative grain-texture">
-      {/* Tiny Gold Line Accent Above Footer */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#C8A45D]/60 to-transparent" />
+      {/* Subtle Gold Divider */}
+      <div className="section-divider" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
         
         {/* Top Footer Row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-[#171717]">
@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Left Name & Title */}
           <div className="space-y-2">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-sm bg-[#171717] border border-[#C8A45D]/40 flex items-center justify-center text-[#C8A45D] font-serif-editorial font-bold">
+              <div className="w-8 h-8 rounded-sm glass-surface flex items-center justify-center text-[#C8A45D] font-serif-editorial font-bold">
                 {profile.initials}
               </div>
               <span className="font-serif-editorial text-2xl font-semibold text-[#F2F0EA]">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ArrowRight, BookOpen, Calendar } from 'lucide-react';
+import { Clock, ArrowRight, Calendar } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import ArticleModal from './ArticleModal';
 import { portfolioData } from '../data/portfolioData';
@@ -20,8 +20,8 @@ export default function Insights() {
   const secondaryArticles = filteredArticles.filter(a => a.id !== featuredArticle?.id);
 
   return (
-    <section id="insights" className="py-24 bg-[#080808] border-b border-[#171717] relative grain-texture">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="insights" className="py-28 bg-[#080808] border-b border-[#171717] relative grain-texture bg-depth-layer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <SectionHeader
@@ -30,16 +30,16 @@ export default function Insights() {
           subtitle="Executive perspectives, strategic case analysis, and industry observations."
         />
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-12">
+        {/* Category Filter Pills — Glass */}
+        <div className="flex flex-wrap items-center gap-2 mb-14">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 text-xs tracking-widest font-semibold transition-all rounded-sm uppercase ${
                 activeCategory === cat
-                  ? 'bg-[#C8A45D] text-[#080808]'
-                  : 'bg-[#0D0D0D] text-[#B8B8B8] border border-[#242424] hover:border-[#C8A45D]/40 hover:text-[#F2F0EA]'
+                  ? 'btn-glass-primary'
+                  : 'glass-surface text-[#B8B8B8] hover:text-[#F2F0EA]'
               }`}
             >
               {cat}
@@ -60,12 +60,12 @@ export default function Insights() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
                 onClick={() => setSelectedArticle(featuredArticle)}
-                className="bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 rounded-sm overflow-hidden p-8 sm:p-12 cursor-pointer group transition-all duration-500 hover:-translate-y-1 shadow-xl relative"
+                className="glass-card rounded-sm overflow-hidden p-8 sm:p-12 cursor-pointer group glass-light-reflection relative"
               >
                 <div className="absolute top-0 right-0 p-4">
-                  <span className="px-3 py-1 bg-[#171717] border border-[#C8A45D]/40 text-[#C8A45D] text-[10px] font-semibold tracking-widest uppercase rounded-sm">
+                  <span className="px-3 py-1 glass-pill text-[#C8A45D] text-[10px] font-semibold tracking-widest uppercase rounded-sm">
                     FEATURED ESSAY
                   </span>
                 </div>
@@ -112,9 +112,9 @@ export default function Insights() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
                     onClick={() => setSelectedArticle(article)}
-                    className="bg-[#0D0D0D] border border-[#242424] hover:border-[#C8A45D]/60 rounded-sm p-8 cursor-pointer group transition-all duration-500 hover:-translate-y-1 shadow-lg flex flex-col justify-between"
+                    className="glass-card rounded-sm p-8 cursor-pointer group glass-light-reflection flex flex-col justify-between"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between text-xs text-[#777777]">
@@ -136,7 +136,7 @@ export default function Insights() {
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-[#171717] flex items-center justify-between text-xs text-[#C8A45D] font-semibold tracking-widest">
+                    <div className="pt-6 mt-6 border-t border-white/[0.05] flex items-center justify-between text-xs text-[#C8A45D] font-semibold tracking-widest">
                       <span>READ ESSAY</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
